@@ -1,14 +1,22 @@
-name = "my-photo-album"
-main = "src/index.js"
-compatibility_date = "2023-12-01"
+name = "cloudflare-photo"
+compatibility_date = "2026-03-09"
+pages_build_output_dir = "public"
 
-[[r2_buckets]]
-binding = "PHOTO_BUCKET"
-bucket_name = "halo2"
+[vars]
+SITE_TITLE = "Photograph"
+SESSION_COOKIE_NAME = "cf_photo_session"
+SESSION_MAX_AGE_SECONDS = "1209600"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "photo-db"
+database_id = "replace-with-your-d1-id"
+migrations_dir = "migrations"
 
 [[kv_namespaces]]
-binding = "PHOTO_METADATA"
-id = "202028fb42944e8a8293b02d7ae48d3b"
+binding = "CACHE"
+id = "replace-with-your-kv-id"
 
-#[vars]
-#ADMIN_PASSWORD = "your_new_password"
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "photo-originals"

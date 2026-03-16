@@ -1,0 +1,20 @@
+{
+  "name": "cloudflare-photo-album",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler pages dev public --persist-to .wrangler/state",
+    "deploy": "wrangler pages deploy public",
+    "d1:migrate:local": "wrangler d1 migrations apply DB --local --persist-to .wrangler/state",
+    "d1:migrate:remote": "wrangler d1 migrations apply DB --remote",
+    "d1:seed": "wrangler d1 execute DB --local --persist-to .wrangler/state --file ./migrations/0002_seed.sql",
+    "gen:password": "node ./scripts/gen-password-hash.mjs"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2"
+  },
+  "devDependencies": {
+    "wrangler": "^4.10.0"
+  }
+}
